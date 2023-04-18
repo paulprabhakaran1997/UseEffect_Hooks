@@ -1,23 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
+import { useEffect, useState } from 'react';
+import UseEffect1 from './components/UseEffect1';
+import ObjUseEffect from './components/ObjUseEffect';
+import UnMounting from './components/UnMounting';
+import { BrowserRouter as Router , Routes , Route } from 'react-router-dom';
+import Home from './components/Home';
+import Posts from './components/Posts';
+import Users from './components/Users';
 
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <UseEffect1 /> */}
+      {/* <ObjUseEffect /> */}
+      {/* <UnMounting /> */}
+      <Router>
+        <Routes>
+          <Route path='/' element={ <Home /> } />
+          <Route path='/posts' element={ <Posts /> } />
+          <Route path='/users/:id' element={ <Users /> } />
+        </Routes>
+      </Router>
     </div>
   );
 }
